@@ -1,0 +1,3 @@
+# Ignore generated database types:
+**/database.types.ts
+**/prisma/generated/**/*.ts
