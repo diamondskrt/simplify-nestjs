@@ -1,8 +1,11 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { GraphQLUUID } from 'graphql-scalars';
+import { createZodDto } from 'nestjs-zod';
+
+import { UserSchema } from '../config';
 
 @ObjectType()
-export class UserModel {
+export class UserModel extends createZodDto(UserSchema) {
   @Field(() => GraphQLUUID)
   id: string;
 
@@ -14,7 +17,4 @@ export class UserModel {
 
   @Field({ nullable: true })
   avatarUrl: string;
-
-  @Field(() => Date)
-  createdAt: Date;
 }

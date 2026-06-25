@@ -5,6 +5,7 @@ import { GraphQLModule as NestGraphQLModule } from '@nestjs/graphql';
 import { GraphQLDate, JSONResolver, UUIDResolver } from 'graphql-scalars';
 
 import { IRequestContext } from '~/core/auth';
+import { SubscriptionsModule } from '~/modules/subscriptions';
 import { UsersModule } from '~/modules/users';
 
 @Module({
@@ -41,6 +42,7 @@ import { UsersModule } from '~/modules/users';
       inject: [ConfigService],
     }),
     UsersModule,
+    SubscriptionsModule,
   ],
 })
 export class GraphQLModule {}

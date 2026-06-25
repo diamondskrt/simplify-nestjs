@@ -5,7 +5,7 @@ import { CurrentUser, GqlAuthGuard, type IAuthUser } from '~/core/auth';
 
 import { UsersService } from '../users.service';
 
-import { UpdateUserInput } from './update-user.input';
+import { UpdateUserInput } from './inputs';
 import { UserModel } from './user.model';
 
 @Resolver(() => UserModel)
