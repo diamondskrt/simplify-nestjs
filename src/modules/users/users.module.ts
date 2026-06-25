@@ -3,7 +3,7 @@ import { Global, Module } from '@nestjs/common';
 import { AuthModule } from '~/core/auth';
 import { PrismaModule } from '~/core/prisma';
 
-import { UsersResolver } from './graphql';
+import { UsersResolver } from './resolvers';
 import { UsersRepository } from './users.repository';
 import { UsersService } from './users.service';
 
