@@ -28,8 +28,9 @@ model AuthUsers {
 model Subscriptions {
   id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   userId            String    @map("user_id") @db.Uuid
+  imgUrl            String?   @map("img_url")
   title             String
-  description       String
+  description       String?
   price             Decimal   @db.Decimal(6, 2)
   paymentInterval   String    @map("payment_interval")
   paymentDate       DateTime  @map("payment_date") @db.Date
@@ -40,6 +41,7 @@ model Subscriptions {
 
   @@index([description(ops: raw("gin_trgm_ops"))], map: "idx_subscriptions_description_trgm", type: Gin)
   @@index([title(ops: raw("gin_trgm_ops"))], map: "idx_subscriptions_title_trgm", type: Gin)
+  @@map("subscriptions")
   @@schema("public")
 }
 
